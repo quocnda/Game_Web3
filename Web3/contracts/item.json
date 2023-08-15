@@ -1,0 +1,24 @@
+{
+    "items": [
+        {
+            "name" :"Camera",
+            "id" :1,
+            "image" : "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/camera.jpg",
+            "stock" : 30
+        },
+        {
+            "name" :"Drone",
+            "id" :2,
+            "image" : "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/drone.jpg",
+            "stock" : 30
+        },
+        {
+            
+            "name": "Headset",
+            "id" : 3,
+            "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/headset.jpg",
+            "stock": 24   
+        }
+    ]
+
+}
