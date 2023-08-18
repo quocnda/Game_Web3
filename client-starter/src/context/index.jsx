@@ -6,7 +6,7 @@ const GlobalContext = createContext();
 export const GlobalContextProvider = ({ children }) => {
     const [provider_of_coin,setprovider_of_coin] =useState(null)
     const [provider,setprovider] =useState(null)
-    const [providrt_of_nft,setprovider_of_nft] =useState(null)
+    const [provider_of_nft,setprovider_of_nft] =useState(null)
     const [contract_of_coin,setcontract_of_coin] =useState(null)
     const [contract_of_nft,setcontract_of_nft] =useState(null)
     const [contract_from_market,setcontract_from_market] =useState(null)
@@ -101,6 +101,7 @@ export const GlobalContextProvider = ({ children }) => {
       }, [])
     return (
         <GlobalContext.Provider value={{
+           provider_of_coin,account,contract_of_coin,provider,setaccount,contract_of_nft,provider_of_nft,items_of_sold,items,contract_from_market
 
         }}>
             {children}           

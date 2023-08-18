@@ -1,9 +1,11 @@
 import React from 'react';
 import { PageHOC } from '../components';
+import { useGlobalContext } from '../context';
 const Home = () => {
+  const {account} = useGlobalContext();
   return (
     <div>
-     
+     {console.log("account from home",account)}
     </div>
   )
 };
