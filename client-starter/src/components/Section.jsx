@@ -15,11 +15,13 @@ const Section = ({ title,items_of_sold, items, togglePop,setitem_of_sold_id }) =
                 {items.map((item,index) => (
                     <div className='card' key={index} onClick={() => settoggleandid(index)}>
                         <div className='card__image'>
+                        {console.log(item.image)}
                             <img src={item.image} alt='Item' />
                         </div>
                         <div className='card__info'> 
+                        HI anh em
                             {item.name}
-                            </div>
+                        </div>
                     </div>
                 ))}
              

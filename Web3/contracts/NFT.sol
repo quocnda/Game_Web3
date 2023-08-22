@@ -10,6 +10,7 @@ contract NFT {
         uint256 stock; 
     }
     Item[] public items;
+    uint256 public number_of_items;
     constructor () {
         owner = msg.sender;
     }
@@ -25,7 +26,7 @@ contract NFT {
         Item memory item = Item(name_,id_,image_,stock_);
         items.push(item);
         balanceOf[msg.sender][id_] = stock_;
-
+        number_of_items = items.length;
     }
  
     function  allowance(address from,address spender , uint256 _id,uint256 amount) public {

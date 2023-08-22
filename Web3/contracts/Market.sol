@@ -57,7 +57,7 @@ contract Marketplace  {
     //             nft.allowance(add_nft,_tokenId , amount );
     // }
     // Make item to offer on the marketplace
-    function makeItem(uint256 amount, uint256 _tokenId, uint256 _price) public payable   {
+    function makeItem(uint256 _tokenId,uint256 amount, uint256 _price) public payable   {
         require(_price > 0, "Price must be greater than zero");
         // increment itemCount
         itemCount ++;

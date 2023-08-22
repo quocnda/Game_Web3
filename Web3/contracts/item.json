@@ -1,23 +1,72 @@
 {
     "items": [
         {
-            "name" :"Camera",
+            "name" :"ACE",
             "id" :1,
-            "image" : "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/camera.jpg",
+            "image" : "https://i.imgur.com/0IhCRJs.png",
             "stock" : 30
         },
         {
-            "name" :"Drone",
+            "name" :"Bakezori",
             "id" :2,
-            "image" : "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/drone.jpg",
+            "image" : "https://i.imgur.com/1JShnZe.png",
             "stock" : 30
         },
         {
             
-            "name": "Headset",
+            "name": "Black_Solus",
             "id" : 3,
-            "image": "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/headset.jpg",
-            "stock": 24   
+            "image": "https://i.imgur.com/mTnV32d.png",
+            "stock": 30
+        },
+        {
+            
+            "name": "Calligrapher",
+            "id" : 4,
+            "image": "https://i.imgur.com/XUCX4ol.png",
+            "stock": 30
+        },
+        {
+            
+            "name": "Chakri_Avatar",
+            "id" : 5,
+            "image": "https://i.imgur.com/W2hWzYn.png",
+            "stock": 30
+        },
+        {
+            
+            "name": "Coalfist",
+            "id" : 6,
+            "image": "https://i.imgur.com/ZadVnwY.png",
+            "stock": 30
+        },
+        {
+            
+            "name": "Desolator",
+            "id" : 7,
+            "image": "https://i.imgur.com/Y6xbWGP.png",
+            "stock": 30
+        },
+        {
+            
+            "name": "Dusk_Rigger",
+            "id" : 8,
+            "image": "https://i.imgur.com/8UxNNEB.png",
+            "stock": 30
+        },
+        {
+            
+            "name": "Flamwreath",
+            "id" : 9,
+            "image": "https://i.imgur.com/ueby1we.png",
+            "stock": 30
+        },
+        {
+            
+            "name": "Furiosa",
+            "id" : 10,
+            "image": "https://i.imgur.com/rS6obGr.png",
+            "stock": 30
         }
     ]
 

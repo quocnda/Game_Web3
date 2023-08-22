@@ -2,8 +2,7 @@ import { useEffect, useState } from 'react'
 import { ethers } from 'ethers'
 
 
-
-import close from '../assets/close.svg'
+import { close } from '../assets'
 
 const Makeitem= ({toggle,settoggle,contract,provider}) => {
   const [hasBought, setHasBought] = useState(false)
@@ -35,22 +34,16 @@ const Makeitem= ({toggle,settoggle,contract,provider}) => {
             {/* <h1 > {item.itemId.toString()}</h1> */}
              </div>
              <div className='product__order'> 
-              <p>
-               
-              </p>
-                <input type='number' placeholder='id of items' value={number} onChange={handleOnClick}  />
+                <input type='number' bgcolor="#279aec" placeholder='id of items' value={number} onChange={handleOnClick}  />
                 <input type='number' placeholder='amount of items' value={numberofsold} onChange={handleOnClickSetnumbersold}  />
                 <input type='number' placeholder='price of items' value={price} onChange={handldeOnPrice}  />
 
               <button className='product__buy' onClick={MakeHandler}>
                 makeItem
               </button>
-
-            
-             
               <div>
                 <button onClick={settoggle} className='product__close' >
-                  <img src={close} alt = 'Close'/>
+                  <img src='https://i.imgur.com/kwnCxKr.png' alt = 'Close'/>
                 </button>
               </div>
 

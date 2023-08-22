@@ -5,9 +5,12 @@ require ('dotenv').config();
 module.exports = {
   solidity: "0.8.18",
   networks: {
-    klaytn: {
+    klaytn : {
       url:"https://public-en-baobab.klaytn.net",
       accounts: [process.env.PRIV_KEY]
     }
+  },
+  etherscan : {
+    apiKey : process.env.API_KEY
   }
 };

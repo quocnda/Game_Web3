@@ -39,7 +39,7 @@ import xho from './Xho.png';
 
 // logo
 import logo from './logo.svg';
-
+import close from'./close.svg';
 // icon
 import attack from './attack.png';
 import defense from './defense.png';
@@ -54,7 +54,6 @@ import player02 from './player02.png';
 import attackSound from './sounds/attack.wav';
 import defenseSound from './sounds/defense.mp3';
 import explosion from './sounds/explosion.mp3';
-
 export const allCards = [
   ace,
   bakezori,
@@ -127,6 +126,7 @@ export {
   xho,
 
   logo,
+  close,
 
   attack,
   defense,

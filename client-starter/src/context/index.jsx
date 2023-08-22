@@ -13,6 +13,7 @@ export const GlobalContextProvider = ({ children }) => {
     const [items,setitems] = useState(null)
     const [items_of_sold,setitem_of_sold] = useState(null)
     const [account,setaccount] = useState(null)
+    const [balance_,setbalance_] = useState(0)
     const LoadDataContract = async ()=> {
    
         const items_of_sold = []
@@ -45,15 +46,21 @@ export const GlobalContextProvider = ({ children }) => {
          console.log(number_items)
         for (let i=1; i<=number_items;i++) {
          const item = await contract.items(i)
-                 items_of_sold.push(item)
-         const itemID= item.itemId
-         
-         const item_ = await contract_of_nft.items(itemID.toString()-1)
+         if(item.amount>0 ){
+          items_of_sold.push(item)
+          const itemID = item.itemId
+          const item_ = await contract_of_nft.items(itemID.toString() - 1)
           items.push(item_)
-       
+          console.log("item thoa man la ",item.itemID)
         }
+        }
+        const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+        const account = ethers.utils.getAddress(accounts[0])
+        const balance_ = await contract_of_coin.balanceOf(account)
+        const balance_of_coi = parseInt(balance_._hex)
+        console.log("balance from load data",balance_of_coi)
+        setbalance_(balance_of_coi)
         setitems(items)
-        
           setitem_of_sold(items_of_sold)
        }
        else {
@@ -76,7 +83,8 @@ export const GlobalContextProvider = ({ children }) => {
             const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
             const account = ethers.utils.getAddress(accounts[0])
             setaccount(account)
-            console.log(account)
+            console.log("contract of coin ",contract_of_coin)
+          
             }
             else {
                 aler()
@@ -101,7 +109,7 @@ export const GlobalContextProvider = ({ children }) => {
       }, [])
     return (
         <GlobalContext.Provider value={{
-           provider_of_coin,account,contract_of_coin,provider,setaccount,contract_of_nft,provider_of_nft,items_of_sold,items,contract_from_market
+           provider_of_coin,account,contract_of_coin,provider,setaccount,contract_of_nft,provider_of_nft,items_of_sold,items,contract_from_market,balance_
 
         }}>
             {children}           

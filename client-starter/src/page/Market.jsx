@@ -7,17 +7,21 @@ import {Navigation} from '../components'
 import {Product} from '../components'
 import {Section} from '../components'
 import { useGlobalContext } from '../context'
-import './index.css'
+import { BalanceOf} from '../components'
 
 const Market = () =>{
 
 
-    const { provider_of_coin, account, contract_of_coin, provider, setaccount, contract_of_nft, provider_of_nft, items_of_sold, items, contract_from_market } = useGlobalContext();
+    const { provider_of_coin, account, contract_of_coin, provider, setaccount, contract_of_nft, provider_of_nft, items_of_sold, items, contract_from_market,balance_ } = useGlobalContext();
     const [item, setitem] = useState(null)
     const [toggle, settoggle] = useState(false)
     const [toggleofMakeitem, settoggleofMakeitem] = useState(false)
     const [items_of_sold_id, setitem_of_sold_id] = useState(0)
     const [item_from_nft, setitem_from_nft] = useState(null)
+    const [toggleofBalanceOf,settoggleBalanceOf] = useState(false)
+    const [items_user_count_amount,setitem_user_count_amount] = useState([])
+    const [items_user_count_image,setitem_user_count_image] = useState([])
+  
 
     const togglePop = (id) => {
 
@@ -48,10 +52,15 @@ const Market = () =>{
                 provider_of_nft={provider_of_nft}
                 toggle={toggleofMakeitem}
                 settoggle={settoggleofMakeitem}
+                toggleBalanceOf = {toggleofBalanceOf}
+                settoggleBalanceOf = {settoggleBalanceOf}
+                setitem_user_count_amount={setitem_user_count_amount}
+                setitem_user_count_image = {setitem_user_count_image}
+                balance_={balance_}
             />
-            <h2>Welcome to Dappazon</h2>
+            <h2>Welcome to Market </h2>
             {items && (
-                    <Section title={"Clothing and Jewelry"} items_of_sold={items_of_sold} items={items} togglePop={togglePop} setitem_of_sold_id={setitem_of_sold_id} />
+                    <Section title={"Hero and weapon"} items_of_sold={items_of_sold} items={items} togglePop={togglePop} setitem_of_sold_id={setitem_of_sold_id} />
             )}
             {toggle &&
                 (
@@ -67,6 +76,17 @@ const Market = () =>{
                     />
                 )
             }
+              {
+        toggleofBalanceOf && (
+          <BalanceOf 
+          toggle={toggleofBalanceOf}
+          settoggle={settoggleBalanceOf}
+          items_user_count_amount = {items_user_count_amount}
+          items_user_count_image = {items_user_count_image}
+          />
+        )
+      }
+
 
         </div>
     );
