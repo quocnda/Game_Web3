@@ -1,4 +1,4 @@
-const contract_address_NFT = "0xC0906241A58344513E9B438bfa8623340e4c3e90"
+const contract_address_NFT = "0x87AE155F0A90F71705ae551D91ec97A8b4f07464"
 const Contract_ABI_NFT = [
 	{
 		"inputs": [],
@@ -115,6 +115,26 @@ const Contract_ABI_NFT = [
 				"internalType": "uint256",
 				"name": "stock",
 				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "attack",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "defensive",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "mana",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "description",
+				"type": "string"
 			}
 		],
 		"stateMutability": "view",
@@ -141,6 +161,26 @@ const Contract_ABI_NFT = [
 				"internalType": "uint256",
 				"name": "stock_",
 				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "attack_",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "defensive_",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "mana_",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "description",
+				"type": "string"
 			}
 		],
 		"name": "list",
@@ -190,10 +230,10 @@ const Contract_ABI_NFT = [
 		"type": "function"
 	}
 ]
-const contract_address_Market = "0x15fa37A88c512406031bec88Fea4A87Ea007f571"
+const contract_address_Market = "0x491D0dc6476C639606E50Ba511BBe2884C6BFAf4"
 const Contract_ABI_Market = [{"inputs":[{"internalType":"uint256","name":"_feePercent","type":"uint256"},{"internalType":"address","name":"NFT","type":"address"},{"internalType":"address","name":"a_coin","type":"address"}],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[],"name":"coin","outputs":[{"internalType":"contract ICOIN","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"feeAccount","outputs":[{"internalType":"address payable","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"feeGas","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"feePercent","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_itemId","type":"uint256"},{"internalType":"uint256","name":"amount_of_purchase","type":"uint256"}],"name":"getTotalPrice","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"itemCount","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"items","outputs":[{"internalType":"uint256","name":"itemId","type":"uint256"},{"internalType":"uint256","name":"price","type":"uint256"},{"internalType":"uint256","name":"amount","type":"uint256"},{"internalType":"address payable","name":"seller","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_tokenId","type":"uint256"},{"internalType":"uint256","name":"amount","type":"uint256"},{"internalType":"uint256","name":"_price","type":"uint256"}],"name":"makeItem","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"nft","outputs":[{"internalType":"contract INFT","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_itemId","type":"uint256"},{"internalType":"uint256","name":"amount_of_purchase","type":"uint256"}],"name":"purchaseItem","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"total_pric","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"}]
 
-const contract_address_Coin = "0xAEFAf71e6174EE1d80c8e0808241D8BC5793158a"
+const contract_address_Coin = "0x9792334B1543cD2cb1946e6551641d3D9fD36692"
 const Contract_Coin_ABI = [
 	{
 		"inputs": [
@@ -335,6 +375,19 @@ const Contract_Coin_ABI = [
 	},
 	{
 		"inputs": [],
+		"name": "battle_count",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
 		"name": "deposit",
 		"outputs": [],
 		"stateMutability": "payable",
@@ -419,6 +472,32 @@ const Contract_Coin_ABI = [
 				"type": "bool"
 			}
 		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			}
+		],
+		"name": "transferCoinForContract",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "winner",
+				"type": "address"
+			}
+		],
+		"name": "transferCoinForWinner",
+		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},

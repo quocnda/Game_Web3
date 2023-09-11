@@ -3,70 +3,109 @@
         {
             "name" :"ACE",
             "id" :1,
-            "image" : "https://i.imgur.com/0IhCRJs.png",
-            "stock" : 30
+            "image" : "https://i.imgur.com/5Nw7qz1.png",
+            "stock" : 30,
+            "attack" : 20,
+            "defensive" : 5,
+            "mana" : 4,
+            "description" : ""
         },
         {
             "name" :"Bakezori",
             "id" :2,
-            "image" : "https://i.imgur.com/1JShnZe.png",
-            "stock" : 30
+            "image" : "https://i.imgur.com/DBNuBO4.png",
+            "stock" : 30,
+            "attack" : 15,
+            "defensive" : 3,
+            "mana" : 2,
+            "description" : ""
         },
         {
             
             "name": "Black_Solus",
             "id" : 3,
-            "image": "https://i.imgur.com/mTnV32d.png",
-            "stock": 30
+            "image": "https://i.imgur.com/rzdoBxf.png",
+            "stock": 30,
+            "attack" : 5,
+            "defensive" : 20,
+            "mana" : 4,
+            "description" : ""
         },
         {
             
             "name": "Calligrapher",
             "id" : 4,
-            "image": "https://i.imgur.com/XUCX4ol.png",
-            "stock": 30
+            "image": "https://i.imgur.com/7iDGoJO.png",
+            "stock": 30,
+            "attack" : 13,
+            "defensive" : 13,
+            "mana" : 4,
+            "description" : ""
         },
         {
             
             "name": "Chakri_Avatar",
             "id" : 5,
-            "image": "https://i.imgur.com/W2hWzYn.png",
-            "stock": 30
+            "image": "https://i.imgur.com/X5T2aOg.png",
+            "stock": 30,
+            "attack" : 10,
+            "defensive" : 5,
+            "mana" : 1,
+            "description" : ""
         },
         {
             
             "name": "Coalfist",
             "id" : 6,
-            "image": "https://i.imgur.com/ZadVnwY.png",
-            "stock": 30
+            "image": "https://i.imgur.com/nLMHnBM.png",
+            "stock": 30,
+            "attack" : 10,
+            "defensive" : 25,
+            "mana" : 6,
+            "description" : ""
         },
         {
             
             "name": "Desolator",
             "id" : 7,
-            "image": "https://i.imgur.com/Y6xbWGP.png",
-            "stock": 30
+            "image": "https://i.imgur.com/313HSmM.png",
+            "stock": 30,
+            "attack" : 25,
+            "defensive" : 0,
+            "mana" : 4,
+            "description" : ""
         },
         {
             
             "name": "Dusk_Rigger",
             "id" : 8,
-            "image": "https://i.imgur.com/8UxNNEB.png",
-            "stock": 30
+            "image": "https://i.imgur.com/EA75NNL.png",
+            "stock": 30,
+            "attack" : 0,
+            "defensive" : 35,
+            "mana" : 4,
+            "description" : ""
         },
         {
             
             "name": "Flamwreath",
             "id" : 9,
-            "image": "https://i.imgur.com/ueby1we.png",
-            "stock": 30
+            "image": "https://i.imgur.com/DOsbpbh.png",
+            "stock": 30,
+            "attack" : 10,
+            "defensive" : 10,
+            "mana" : 2,
+            "description" : ""
         },
         {
-            
             "name": "Furiosa",
             "id" : 10,
-            "image": "https://i.imgur.com/rS6obGr.png",
-            "stock": 30
+            "image": "https://i.imgur.com/YMvh3zg.png",
+            "stock": 30,
+            "attack" : 0,
+            "defensive" : 0,
+            "mana" : 0,
+            "description" : "Counter Attack"
         }
     ]
 

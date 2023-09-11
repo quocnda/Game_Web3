@@ -8,6 +8,10 @@ contract NFT {
         uint256 id;
         string image;
         uint256 stock; 
+        uint256 attack;
+        uint256 defensive;
+        uint256 mana;
+        string description;
     }
     Item[] public items;
     uint256 public number_of_items;
@@ -20,10 +24,14 @@ contract NFT {
     function list(string memory name_,
     uint256 id_,
     string memory image_,
-    uint256 stock_
+    uint256 stock_,
+    uint256 attack_,
+    uint256 defensive_,
+    uint256 mana_,
+    string memory description
     ) public  {
         require(msg.sender == owner);
-        Item memory item = Item(name_,id_,image_,stock_);
+        Item memory item = Item(name_,id_,image_,stock_,attack_,defensive_,mana_,description);
         items.push(item);
         balanceOf[msg.sender][id_] = stock_;
         number_of_items = items.length;

@@ -11,14 +11,18 @@ require ('dotenv').config();
 async function main() {
       const [deployer] = await ethers.getSigners();
       const Dapp = await ethers.getContractFactory("Marketplace");
-      const dapp = await Dapp.deploy(10,process.env.NFT_CONTRACT,process.env.COIN_CONTRACT);
+      const dapp = await Dapp.deploy(5,process.env.NFT_CONTRACT,process.env.COIN_CONTRACT);
       await dapp.deployed();
       // for(let i =0;i<items.length;i++) {
       //   const transaction = await dapp.connect(deployer).list(
       //     items[i].name,
       //     items[i].id,
       //     items[i].image,
-      //     items[i].stock
+      //     items[i].stock,
+      //     items[i].attack,
+      //     items[i].defensive,
+      //     items[i].mana,
+      //     items[i].description
       //   )
       //   await transaction.wait()
       // }

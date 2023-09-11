@@ -1,9 +1,13 @@
 import React, { createContext, useContext, useEffect, useRef, useState } from "react";
 import { ethers } from 'ethers';
 import { useNavigate } from "react-router-dom";
+import { io } from "socket.io-client";
 import {contract_address_Coin,contract_address_Market,contract_address_NFT,Contract_ABI_Market,Contract_ABI_NFT,Contract_Coin_ABI} from '../constant/constant'
 const GlobalContext = createContext();
+const socket = io("http://localhost:3000")
 export const GlobalContextProvider = ({ children }) => {
+
+  const [battleGround, setBattleGround] = useState('bg-astral');
     const [provider_of_coin,setprovider_of_coin] =useState(null)
     const [provider,setprovider] =useState(null)
     const [provider_of_nft,setprovider_of_nft] =useState(null)
@@ -14,8 +18,11 @@ export const GlobalContextProvider = ({ children }) => {
     const [items_of_sold,setitem_of_sold] = useState(null)
     const [account,setaccount] = useState(null)
     const [balance_,setbalance_] = useState(0)
+    const[sum_room1,setsum_room] = useState(null)
+    const[items_user_count_amount,setitem_user_count_amount] = useState([])
+    const[items_user_count_image,setitem_user_count_image] = useState([])
+    const[items_user_details,setitem_user_details] = useState([])
     const LoadDataContract = async ()=> {
-   
         const items_of_sold = []
          const items = []
        if(window.ethereum) {
@@ -30,11 +37,12 @@ export const GlobalContextProvider = ({ children }) => {
          setprovider_of_coin(provider_of_coin)
          setprovider(provider)
          setprovider_of_nft(provider_of_nft)
-       //  for (let i = 0 ; i<10;i++) {
-       //   const tmp = i+1
-       //   const transaction = await contract.makeItem(tmp,20,20)
-       //   await transaction.wait()
-       //  }
+        // for (let i = 0 ; i<10;i++) {
+        //  const tmp = i+1
+        //  const transaction = await contract.makeItem(tmp,20,20)
+        //  await transaction.wait()
+        //  console.log("transaction la ", transaction)
+        // }
          console.log(contract)
          console.log(contract_of_nft)
          console.log(contract_of_coin)
@@ -58,10 +66,26 @@ export const GlobalContextProvider = ({ children }) => {
         const account = ethers.utils.getAddress(accounts[0])
         const balance_ = await contract_of_coin.balanceOf(account)
         const balance_of_coi = parseInt(balance_._hex)
-        console.log("balance from load data",balance_of_coi)
         setbalance_(balance_of_coi)
         setitems(items)
-          setitem_of_sold(items_of_sold)
+        setitem_of_sold(items_of_sold)
+
+       const items_user_count_image  = []
+      const items_user_count_amount = []
+      const items_user_details = []
+      for( let i =1;i<=10;i++) {
+        const item = await contract_of_nft.balanceOf(account,i)
+        const item_ = await contract_of_nft.items(i-1) 
+        if(item > 0 ) {
+          items_user_count_image.push(item_.image)
+          items_user_details.push(item_)
+          console.log("item from index.js",item_)
+          items_user_count_amount.push(item.toString())
+        }
+      }
+      setitem_user_count_amount(items_user_count_amount)
+      setitem_user_count_image(items_user_count_image)
+      setitem_user_details(items_user_details)
        }
        else {
          console.log("ch cai ")
@@ -93,24 +117,43 @@ export const GlobalContextProvider = ({ children }) => {
     const aler = () => {
         alert("Please install metamask")
     }
+    const LoadRoom = () => {
+        
+        console.log("da vao day tu join battle")
+        socket.emit("joinbattle")
+        socket.on("sum_room" , (map) => {
+            const new_map = new Map(map)
+            setsum_room(new_map)
+        })
+       
+    }
+    
      useEffect(() => {
         updateCurrentAccount();
         LoadDataContract();
-        
+        LoadRoom();
         if (window.ethereum) {
           window.ethereum.on('accountsChanged', handleAccountsChanged);
         }
-    
         return() => {
           if (window.ethereum) {
             window.ethereum.removeListener('accountsChanged', handleAccountsChanged);
           }
         }
       }, [])
+      useEffect(() => {
+        const isBattleground = localStorage.getItem('battleground');
+    
+        if (isBattleground) {
+          setBattleGround(isBattleground);
+        } else {
+          localStorage.setItem('battleground', battleGround);
+        }
+      }, []);
     return (
         <GlobalContext.Provider value={{
-           provider_of_coin,account,contract_of_coin,provider,setaccount,contract_of_nft,provider_of_nft,items_of_sold,items,contract_from_market,balance_
-
+           provider_of_coin,account,contract_of_coin,provider,setaccount,contract_of_nft,provider_of_nft,items_of_sold,items,contract_from_market,balance_,socket,sum_room1,battleGround,
+          items_user_count_amount,items_user_count_image,items_user_details
         }}>
             {children}           
         </GlobalContext.Provider>
